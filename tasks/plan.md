@@ -1,6 +1,6 @@
 # Plan de implementación: ArmarioInteligente V1
 
-- **Estado:** **Aprobado** por el dueño (2026-11-26). Issues de H0 (#2-#15) y H1 (#16-#25) creadas; milestones H0-H6 creados. Las issues de H2-H6 se crean al empezar cada hito. **Progreso H0 (2026-11-26):** T0.1-T0.9 (#2-#10) hechas y fusionadas (PR #27-#36; `check` ~45 s; CI con gitleaks por binario oficial; `main` protegida). Siguiente: T0.10 (#11).
+- **Estado:** **Aprobado** por el dueño (2026-11-26). Issues de H0 (#2-#15) y H1 (#16-#25) creadas; milestones H0-H6 creados. Las issues de H2-H6 se crean al empezar cada hito. **Progreso H0 (2026-11-26):** T0.1-T0.9 (#2-#10) hechas y fusionadas (PR #27-#36; `check` ~45 s; CI con gitleaks por binario oficial; `main` protegida). **(2026-11-27):** T0.10 (#11, PR #40), T0.14 (#15, PR #41) y T0.11 (#12, PR #42: 10 agentes + hook `scripts/agent-guard.mjs`) hechas; #12 queda abierta hasta la prueba en seco en una sesión nueva. Siguiente: prueba en seco, luego T0.12 (#13) → T0.13 (#14).
 - **Spec de origen:** [SPEC.md](../SPEC.md), [spec/capability-map.md](../spec/capability-map.md) y `spec/SPEC-<id>.md`.
 - **Listón:** [CONSTRAINTS.md](../CONSTRAINTS.md). Toda tarea lo cumple, además de sus criterios propios.
 - **Dónde se siguen las tareas:** issues de GitHub en https://github.com/Javier71412/ArmarioInteligente, una por tarea, agrupadas en *milestones* (uno por hito). Este archivo es el índice ordenado; cada tarea lleva su número de issue (`#N`) al lado del id. No hay `tasks/todo.md`, para no tener dos listas.
@@ -275,6 +275,8 @@ Cada línea toca solo su módulo; se pueden repartir entre desarrolladores a la 
 | `disenador` | Entregables de `docs/diseno/` y Figma (H1) | frontend-ui-engineering | Programar |
 
 El planificador es la sesión principal con `planning-and-task-breakdown` (no necesita agente propio).
+
+**Cómo se separan las herramientas (hecho en T0.11):** cada agente pasa por el hook `PreToolUse` `scripts/agent-guard.mjs <rol>` (batería en `config-tests/agent-guard.test.ts`): el probador solo escribe tests; los desarrolladores, nunca tests ni el listón y solo su zona; los revisores, nada; Bash solo para comprobar (sin redirecciones). La definición de cada agente se comprueba en `config-tests/agents.test.ts`. La garantía dura sigue siendo `floor-guard` en CI.
 
 ## Riesgos y mitigaciones
 
