@@ -5,7 +5,7 @@
 Este archivo es un **contrato**: define qué significa «suficientemente bueno para fusionar». Lo leen todos los agentes antes de escribir código.
 **No se rebaja para que un cambio pase.** Si una regla estorba, se arregla el código o se pide una excepción (tabla del final).
 
-Nivel actual: **escrito** (aún no hay código). Montar cada comprobación es una tarea del hito 0 del plan, y una fila solo cuenta como «aplicada» cuando su comando **falla** con una violación hecha a propósito, **pasa** con un caso limpio y **falla** si el propio escáner da error.
+Nivel actual: **aplicado en CI** (2026-11-27) para §0, §1, §4 y las filas de §2 que ya tienen código (tipos, lint, arquitectura, cobertura de dominio, claves, dependencias): cada una se ha visto **fallar** con una violación hecha a propósito, **pasar** con un caso limpio y **fallar** si el propio escáner da error. El resto de filas se monta con su módulo. `main` solo acepta PR con la CI en verde.
 
 ---
 
@@ -49,7 +49,7 @@ El agente que escribe los tests **no es** el que escribe el código.
 | Dimensión | Regla | Comprobado por | Corre en | Por qué este número |
 |---|---|---|---|---|
 | Tipos | 0 errores | `npx tsc --noEmit` | edición, check, CI | TypeScript strict ya decidido |
-| Lint | 0 errores | `npx expo lint` | edición, check, CI | Config del proyecto |
+| Lint | 0 errores | `npm run lint` (`eslint .`; `npx expo lint` solo mira `src/`, `app/` y `components/`) | edición, check, CI | Config del proyecto |
 | Arquitectura | 0 imports prohibidos; archivos trampa dan error | eslint-plugin-boundaries + `no-restricted-imports` ([ADR 0006](docs/adr/0006-fronteras-eslint-boundaries.md)) | check, CI | Fronteras del mapa de capacidades |
 | Cobertura de dominio | `src/modules/*/domain/**`: líneas ≥ 90 %, ramas ≥ 85 % | Jest `coverageThreshold` por glob | check, CI | Lógica pura escrita con TDD; 100 % obliga a tests absurdos; ramas algo menos por las guardas defensivas |
 | Motor: nunca miente | Ninguna salida con prendas fuera de `cleanGarments`; bloqueadas siempre presentes; composición válida | fast-check, `numRuns: 1000` | check, CI | Principio 2 y criterio de éxito 6 |
@@ -129,7 +129,7 @@ Se mide en el primer hito y después **no puede empeorar**.
 - ~~Globs por ruta en `coverageThreshold` de Jest 30.~~ **Verificado (2026-11-26, #3):** se admiten y se evalúan por archivo (https://jestjs.io/docs/configuration#coveragethreshold-object, v30.5). Ojo: la clave se resuelve contra el `cwd` y un glob sin archivos hace fallar Jest; resuelto en `jest.domain-coverage.js` y probado en `config-tests/jest-coverage.test.ts`.
 - ~~`linterOptions.noInlineConfig` en la configuración flat de ESLint de `eslint-config-expo` (SDK 58).~~ **Verificado (2026-11-26, #5):** `eslint-config-expo` 58 es flat con ESLint 9 y `noInlineConfig: true` deja sin efecto los `eslint-disable` (https://eslint.org/docs/latest/use/configure/configuration-files); probado en `config-tests/eslint-floor.test.ts`.
 - Salida de `dumpsys gfxinfo` en HyperOS a 120 Hz (cómo cuenta los frames lentos).
-- Si la acción de gitleaks es gratis para cuentas personales; si no, se usa el binario en CI.
+- ~~Si la acción de gitleaks es gratis para cuentas personales; si no, se usa el binario en CI.~~ **Verificado (2026-11-27, #9):** la acción `gitleaks/gitleaks-action` v3 es gratis en cuentas personales (README oficial), pero escanea commits con licencia propietaria; la CI usa el **binario oficial v8.30.1 con SHA-256 fijado** para ejecutar `gitleaks dir . --redact --no-banner` tal cual. Probado con un PR trampa (#37): rojo con una clave falsa, sin mostrar el valor en el log.
 
 ## Excepciones
 
