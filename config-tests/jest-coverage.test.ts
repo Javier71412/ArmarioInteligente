@@ -1,6 +1,6 @@
 /**
  * CONSTRAINTS.md §2 «Cobertura de dominio»: proves the threshold really blocks.
- * Each fixture is a tiny Jest project that reuses the real thresholds from jest.config.js.
+ * Each fixture is a tiny Jest project that reuses the real thresholds from jest.domain-coverage.js.
  */
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
