@@ -1,0 +1,46 @@
+# Plantilla de spike (investigación acotada). Sintaxis: GitHub issue forms
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+name: Spike
+description: Investigación acotada en tiempo para resolver un riesgo; el código no se fusiona, el resultado va al ADR.
+title: 'Spike: '
+labels: ['spike']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Un *spike* responde a una pregunta y acaba en un resultado escrito (funciona / no funciona / plan B), normalmente en un ADR de `docs/adr/`.
+  - type: textarea
+    id: pregunta
+    attributes:
+      label: Pregunta
+      description: Qué hay que averiguar y por qué es un riesgo.
+    validations:
+      required: true
+  - type: input
+    id: tiempo
+    attributes:
+      label: Tiempo máximo
+      placeholder: '≤ 1 día'
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de salida
+      description: Qué resultado cierra el spike (también si sale mal).
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: input
+    id: adr
+    attributes:
+      label: ADR afectado
+      placeholder: 'docs/adr/0007-…'
+  - type: input
+    id: depende
+    attributes:
+      label: Depende de
+      placeholder: Nada
+    validations:
+      required: true
