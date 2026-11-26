@@ -43,12 +43,13 @@
     "start": "expo start",
     "android": "expo run:android",
     "web": "expo start --web",
-    "lint": "expo lint",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit && tsc --noEmit -p config-tests",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
-    "floor-guard": "node scripts/floor-guard.mjs"
+    "floor-guard": "node scripts/floor-guard.mjs",
+    "check": "npm run floor-guard && npm run typecheck && npm run lint && npm run test:coverage"
   },
   "private": true,
   "engines": {

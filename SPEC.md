@@ -58,9 +58,10 @@ npx expo start                 # servidor de desarrollo
 npx expo run:android           # compila e instala la build de desarrollo (Windows, sin cuenta Expo)
 npm test                       # "test": "jest"            (CI, una pasada)
 npm run test:watch             # "test:watch": "jest --watchAll"
-npx expo lint                  # ESLint (flat config de Expo)
-npx tsc --noEmit               # comprobación de tipos
-npm run check                  # "check": lint + tsc + test (puerta antes de cada commit/PR)
+npm run lint                   # "lint": "eslint ." (todo el proyecto; `npx expo lint` solo mira src/, app/ y components/)
+npm run typecheck              # tsc --noEmit (app + config-tests)
+npm run floor-guard            # suelo de CONSTRAINTS.md sobre el diff contra origin/main
+npm run check                  # floor-guard + typecheck + lint + jest --coverage (puerta antes de cada commit/PR; ~45 s, máx. 90 s)
 ```
 APK de release para instalar en el móvil: **SIN VERIFICAR**, se fija en la tarea de CI/release con la doc oficial.
 Cachés y SDK de Android en `D:\DevTools` (C: está lleno).
