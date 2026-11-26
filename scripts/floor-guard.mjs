@@ -160,6 +160,12 @@ for (const l of added) {
   if (TEST_ID.test(l.text) && !isE2e(l.file)) flag('testid-outside-e2e', at(l));
 }
 
+// §4: gitleaks silenced through its ignore list or a config of its own (it would replace or
+// trim the default rules). Any change to one of these files is loud.
+for (const f of changedFiles) {
+  if (/(^|\/)\.?gitleaks(ignore|\.toml)$/.test(f)) flag('silenced-checker', `${f} (gitleaks)`);
+}
+
 // §0: a test file deleted, or an assertion removed from a test that stayed, without a reason.
 // The reason is a `Motivo-test: <texto>` line in one of the branch's commit messages.
 const hasReason = commits.some((c) => /^Motivo-test:\s*\S/m.test(c.body));
