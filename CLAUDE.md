@@ -3,7 +3,7 @@
 App de armario y estilista personal. Proyecto de portfolio, trabajado como en una empresa.
 
 ## Estado
-Spec, 8 ADR y listón de calidad (`CONSTRAINTS.md`) **aprobados** (2026-11-26). Siguiente: plan (`/agent-skills:plan`). Sin código: **no escribas código** hasta que el plan esté aprobado.
+Spec, 8 ADR y listón de calidad (`CONSTRAINTS.md`) **aprobados** (2026-11-26). Plan `tasks/plan.md` **aprobado** (2026-11-26): 7 hitos (H0-H6), milestones en GitHub e issues de H0 (#2-#15) y H1 (#16-#25). Siguiente: **H0**, empezando por #2 (proyecto Expo). Aún sin código.
 Stack elegido: Expo SDK 58 + TypeScript (ver `SPEC.md` › Tech Stack).
 
 ## Fuentes de verdad (lee solo la parte que necesite la tarea)
@@ -11,7 +11,7 @@ Stack elegido: Expo SDK 58 + TypeScript (ver `SPEC.md` › Tech Stack).
 - `spec/capability-map.md` — módulos, dependencias y orden; `spec/SPEC-<id>.md` — la spec del módulo en el que trabajes (lee solo esa).
 - `docs/adr/` — decisiones de arquitectura con su porqué (índice en `docs/adr/README.md`; lee solo los ADR que toque la tarea).
 - `CONSTRAINTS.md` — listón de calidad. **Léelo antes de escribir código. No lo rebajes para que un cambio pase.**
-- `tasks/plan.md` y las issues de GitHub — tareas y su estado (aún no existe).
+- `tasks/plan.md` — hitos y tareas (índice); las issues de GitHub, cuando existan, llevan el estado de cada tarea.
 - Si algo no está en la spec o el plan, no se programa: se propone para V1, V2 o descarte.
 
 ## Forma de trabajo
