@@ -20,6 +20,7 @@ Stack elegido: Expo SDK 58 + TypeScript (ver `SPEC.md` › Tech Stack).
 - Comandos siempre con prefijo: `/agent-skills:spec`, `/agent-skills:plan`, `/agent-skills:build`, `/agent-skills:review`… (`/plan`, `/review`, `/ship` sin prefijo son otros).
 - Método multiagente por función: la sesión principal coordina y no programa; los roles (arquitecto, planificador, desarrolladores, probador, revisores, integrador) irán en `.claude/agents/` con sus skills precargadas. Los agentes no se llaman entre sí.
 - TDD con agentes separados: el probador escribe los tests desde la spec; el desarrollador no puede tocarlos (si cree que uno está mal, para y avisa). Ver `CONSTRAINTS.md` §1.
+- `scripts/floor-guard.mjs` (`npm run floor-guard`) vigila el *diff* contra `origin/main`: commits `feat`/`fix` no tocan tests; borrar un test o quitar un `expect` exige una línea `Motivo-test: …` en el mensaje del commit; `CONSTRAINTS.md` solo se rebaja en su propio PR.
 - El usuario es el dueño del producto: aprueba spec, plan, cada bloque visible y la publicación. Ante una decisión técnica, dale 2-3 opciones con pros, contras y una recomendación.
 
 ## Cuándo abrir una sesión nueva (el dueño lo pide siempre)

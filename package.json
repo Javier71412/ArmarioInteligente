@@ -47,7 +47,8 @@
     "typecheck": "tsc --noEmit && tsc --noEmit -p config-tests",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "floor-guard": "node scripts/floor-guard.mjs"
   },
   "private": true,
   "engines": {
