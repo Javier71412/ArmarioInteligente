@@ -35,7 +35,7 @@ Antes de proponerla, deja todo guardado: estado en `CLAUDE.md`, `tasks/` y la no
 El prompt debe decir qué leer (solo lo necesario), en qué punto está el proyecto, qué se hace en esa sesión y qué comando o skill usar.
 
 ## Comandos
-Ver `SPEC.md` › Comandos. Hoy existen: `npm test`, `npm run test:coverage`, `npm run typecheck` (app + `config-tests`), `npx expo lint`, `npx expo start`. `npm run check` llega con #8.
+Ver `SPEC.md` › Comandos. Hoy existen: `npm run check` (floor-guard + typecheck + lint + Jest con cobertura; ~45 s medidos, presupuesto 90 s), `npm test`, `npm run test:coverage`, `npm run typecheck` (app + `config-tests`), `npm run lint` (`eslint .`: `npx expo lint` solo mira `src/`, `app/` y `components/`), `npm run floor-guard`, `npx expo start`.
 
 ## Git
 - **Cuenta de GitHub del proyecto: `Javier71412`** (https://github.com/Javier71412), con el correo personal ya fijado en la identidad local. Commits, repo remoto, PR, issues y CI: todo con esta cuenta, nunca con la otra (`Javi7142`, que es la global del PC).
