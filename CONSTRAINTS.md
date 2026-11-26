@@ -126,8 +126,8 @@ Se mide en el primer hito y después **no puede empeorar**.
 
 ## Pendiente de verificar en la documentación oficial (al montarlo, hito 0)
 
-- Globs por ruta en `coverageThreshold` de Jest 30.
-- `linterOptions.noInlineConfig` en la configuración flat de ESLint de `eslint-config-expo` (SDK 58).
+- ~~Globs por ruta en `coverageThreshold` de Jest 30.~~ **Verificado (2026-11-26, #3):** se admiten y se evalúan por archivo (https://jestjs.io/docs/configuration#coveragethreshold-object, v30.5). Ojo: la clave se resuelve contra el `cwd` y un glob sin archivos hace fallar Jest; resuelto en `jest.domain-coverage.js` y probado en `config-tests/jest-coverage.test.ts`.
+- ~~`linterOptions.noInlineConfig` en la configuración flat de ESLint de `eslint-config-expo` (SDK 58).~~ **Verificado (2026-11-26, #5):** `eslint-config-expo` 58 es flat con ESLint 9 y `noInlineConfig: true` deja sin efecto los `eslint-disable` (https://eslint.org/docs/latest/use/configure/configuration-files); probado en `config-tests/eslint-floor.test.ts`.
 - Salida de `dumpsys gfxinfo` en HyperOS a 120 Hz (cómo cuenta los frames lentos).
 - Si la acción de gitleaks es gratis para cuentas personales; si no, se usa el binario en CI.
 
