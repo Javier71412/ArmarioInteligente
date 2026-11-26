@@ -3,7 +3,7 @@
 App de armario y estilista personal. Proyecto de portfolio, trabajado como en una empresa.
 
 ## Estado
-Spec, 8 ADR y listón de calidad (`CONSTRAINTS.md`) **aprobados** (2026-11-26). Plan `tasks/plan.md` **aprobado** (2026-11-26): 7 hitos (H0-H6), milestones en GitHub e issues de H0 (#2-#15) y H1 (#16-#25). **H0 en curso:** hechas #2 Expo SDK 58 (PR #27), #3 Jest 30 + cobertura de `domain/` (#28), #4 spike `node:sqlite` en Jest: funciona (#29), #5 suelo de ESLint + Prettier (#30) y #6 fronteras ADR 0006 (#31). Siguiente: **#7 `scripts/floor-guard`**, luego #8 `npm run check`, #9 CI…
+Spec, 8 ADR y listón de calidad (`CONSTRAINTS.md`) **aprobados** (2026-11-26). Plan `tasks/plan.md` **aprobado** (2026-11-26): 7 hitos (H0-H6), milestones en GitHub e issues de H0 (#2-#15) y H1 (#16-#25). **H0 en curso:** hechas #2 Expo SDK 58 (PR #27), #3 Jest 30 + cobertura de `domain/` (#28), #4 spike `node:sqlite` en Jest: funciona (#29), #5 suelo de ESLint + Prettier (#30), #6 fronteras ADR 0006 (#31), #7 `scripts/floor-guard` (#34), #8 `npm run check` (#35, ~45 s), #9 CI en GitHub Actions: check + gitleaks + npm audit (#36) y #10 `main` protegida con *ruleset* (solo PR, 3 checks obligatorios, squash, sin force push ni borrado). Siguiente: **#11 plantillas de issue y PR**, #15 docs en el vault y #12 agentes (sesión nueva al terminar); *spikes* #13 → #14.
 Las comprobaciones de configuración viven en `config-tests/` (cada una con su violación a propósito en `config-tests/fixtures/` o `eslint-fixtures/`).
 Stack elegido: Expo SDK 58 + TypeScript (ver `SPEC.md` › Tech Stack).
 
@@ -41,7 +41,7 @@ Ver `SPEC.md` › Comandos. Hoy existen: `npm run check` (floor-guard + typechec
 - **Cuenta de GitHub del proyecto: `Javier71412`** (https://github.com/Javier71412), con el correo personal ya fijado en la identidad local. Commits, repo remoto, PR, issues y CI: todo con esta cuenta, nunca con la otra (`Javi7142`, que es la global del PC).
 - Configuración local del repo (ya puesta): `user.name`, `user.email` y `credential.https://github.com.username = Javier71412`. No tocar la configuración global.
 - `gh` tiene sesión propia de `Javier71412` (keyring; permisos `repo`, `workflow`, `delete_repo`, `read:org`, `gist`). No uses `GH_TOKEN`. Comprueba con `gh auth status` antes de operar en GitHub.
-- Remoto: **https://github.com/Javier71412/ArmarioInteligente** (público), `origin`, rama `main`. Pendiente: proteger `main`, plantillas de issue y PR y CI (entra en el plan).
+- Remoto: **https://github.com/Javier71412/ArmarioInteligente** (público), `origin`, rama `main`. `main` protegida (*ruleset* «main protegida»: solo por PR, checks `check`, `gitleaks` y `npm audit` en verde y al día con `main`, solo squash, sin force push ni borrado, sin excepciones ni para el dueño). Escaneo de secretos y *push protection* activos. Pendiente: plantillas de issue y PR (#11).
 - Pide confirmación antes de lo que no se puede deshacer: borrar un repo o una rama remota o `push --force`.
 - **Fusionar PR en `main`: permiso permanente del dueño (2026-11-26).** Fusiona tú cada PR que abras, sin preguntar; cuando exista CI, en cuanto esté en verde (nunca con CI en rojo ni saltándote `CONSTRAINTS.md`). Squash merge y borra la rama.
 - `main` solo recibe cambios por PR. Una rama por issue (`feat/12-descripcion`), Conventional Commits, commits pequeños.

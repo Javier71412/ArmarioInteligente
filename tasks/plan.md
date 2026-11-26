@@ -1,6 +1,6 @@
 # Plan de implementación: ArmarioInteligente V1
 
-- **Estado:** **Aprobado** por el dueño (2026-11-26). Issues de H0 (#2-#15) y H1 (#16-#25) creadas; milestones H0-H6 creados. Las issues de H2-H6 se crean al empezar cada hito. **Progreso H0 (2026-11-26):** T0.1-T0.5 (#2-#6) hechas y fusionadas; siguiente T0.6 (#7).
+- **Estado:** **Aprobado** por el dueño (2026-11-26). Issues de H0 (#2-#15) y H1 (#16-#25) creadas; milestones H0-H6 creados. Las issues de H2-H6 se crean al empezar cada hito. **Progreso H0 (2026-11-26):** T0.1-T0.9 (#2-#10) hechas y fusionadas (PR #27-#36; `check` ~45 s; CI con gitleaks por binario oficial; `main` protegida). Siguiente: T0.10 (#11).
 - **Spec de origen:** [SPEC.md](../SPEC.md), [spec/capability-map.md](../spec/capability-map.md) y `spec/SPEC-<id>.md`.
 - **Listón:** [CONSTRAINTS.md](../CONSTRAINTS.md). Toda tarea lo cumple, además de sus criterios propios.
 - **Dónde se siguen las tareas:** issues de GitHub en https://github.com/Javier71412/ArmarioInteligente, una por tarea, agrupadas en *milestones* (uno por hito). Este archivo es el índice ordenado; cada tarea lleva su número de issue (`#N`) al lado del id. No hay `tasks/todo.md`, para no tener dos listas.
