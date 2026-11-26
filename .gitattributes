@@ -1,0 +1,5 @@
+# Same line endings on Windows and in CI (Prettier: endOfLine lf).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary

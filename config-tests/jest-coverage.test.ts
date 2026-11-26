@@ -9,9 +9,13 @@ const fixtures = path.join(__dirname, 'fixtures', 'coverage');
 const jestBin = require.resolve('jest/bin/jest');
 
 function runFixture(name: string) {
-  const result = spawnSync(process.execPath, [jestBin, '--config', path.join(fixtures, name, 'jest.config.js'), '--ci'], {
-    encoding: 'utf8',
-  });
+  const result = spawnSync(
+    process.execPath,
+    [jestBin, '--config', path.join(fixtures, name, 'jest.config.js'), '--ci'],
+    {
+      encoding: 'utf8',
+    },
+  );
   return { status: result.status, output: `${result.stdout}${result.stderr}` };
 }
 

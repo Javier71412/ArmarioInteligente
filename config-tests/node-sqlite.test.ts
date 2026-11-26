@@ -7,14 +7,18 @@ import { DatabaseSync } from 'node:sqlite';
 
 function openMemoryDb() {
   const db = new DatabaseSync(':memory:');
-  db.exec('CREATE TABLE garment (id INTEGER PRIMARY KEY, name TEXT NOT NULL, warmth INTEGER NOT NULL)');
+  db.exec(
+    'CREATE TABLE garment (id INTEGER PRIMARY KEY, name TEXT NOT NULL, warmth INTEGER NOT NULL)',
+  );
   return db;
 }
 
 test('run() inserts and reports changes and lastInsertRowid', () => {
   const db = openMemoryDb();
 
-  const result = db.prepare('INSERT INTO garment (name, warmth) VALUES (?, ?)').run('Jersey azul', 3);
+  const result = db
+    .prepare('INSERT INTO garment (name, warmth) VALUES (?, ?)')
+    .run('Jersey azul', 3);
 
   expect(result.changes).toBe(1);
   expect(result.lastInsertRowid).toBe(1);
