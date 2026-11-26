@@ -1,0 +1,23 @@
+# Dependencias y builds
+node_modules/
+dist/
+web-build/
+.expo/
+expo-env.d.ts
+
+# Carpetas nativas generadas por prebuild (ADR 0008: no se versionan)
+/android/
+/ios/
+
+# Secretos y configuración local
+.env
+.env*.local
+*.keystore
+!debug.keystore
+.claude/settings.local.json
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+*.log
+coverage/
