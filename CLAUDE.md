@@ -3,7 +3,8 @@
 App de armario y estilista personal. Proyecto de portfolio, trabajado como en una empresa.
 
 ## Estado
-Spec, 8 ADR y listón de calidad (`CONSTRAINTS.md`) **aprobados** (2026-11-26). Plan `tasks/plan.md` **aprobado** (2026-11-26): 7 hitos (H0-H6), milestones en GitHub e issues de H0 (#2-#15) y H1 (#16-#25). Siguiente: **H0**, empezando por #2 (proyecto Expo). Aún sin código.
+Spec, 8 ADR y listón de calidad (`CONSTRAINTS.md`) **aprobados** (2026-11-26). Plan `tasks/plan.md` **aprobado** (2026-11-26): 7 hitos (H0-H6), milestones en GitHub e issues de H0 (#2-#15) y H1 (#16-#25). **H0 en curso:** hechas #2 Expo SDK 58 (PR #27), #3 Jest 30 + cobertura de `domain/` (#28), #4 spike `node:sqlite` en Jest: funciona (#29), #5 suelo de ESLint + Prettier (#30) y #6 fronteras ADR 0006 (#31). Siguiente: **#7 `scripts/floor-guard`**, luego #8 `npm run check`, #9 CI…
+Las comprobaciones de configuración viven en `config-tests/` (cada una con su violación a propósito en `config-tests/fixtures/` o `eslint-fixtures/`).
 Stack elegido: Expo SDK 58 + TypeScript (ver `SPEC.md` › Tech Stack).
 
 ## Fuentes de verdad (lee solo la parte que necesite la tarea)
@@ -33,7 +34,7 @@ Antes de proponerla, deja todo guardado: estado en `CLAUDE.md`, `tasks/` y la no
 El prompt debe decir qué leer (solo lo necesario), en qué punto está el proyecto, qué se hace en esa sesión y qué comando o skill usar.
 
 ## Comandos
-Ver `SPEC.md` › Comandos (aún no existe `package.json`).
+Ver `SPEC.md` › Comandos. Hoy existen: `npm test`, `npm run test:coverage`, `npm run typecheck` (app + `config-tests`), `npx expo lint`, `npx expo start`. `npm run check` llega con #8.
 
 ## Git
 - **Cuenta de GitHub del proyecto: `Javier71412`** (https://github.com/Javier71412), con el correo personal ya fijado en la identidad local. Commits, repo remoto, PR, issues y CI: todo con esta cuenta, nunca con la otra (`Javi7142`, que es la global del PC).
