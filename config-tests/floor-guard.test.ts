@@ -144,6 +144,15 @@ describe('silenced-checker', () => {
     expect(status).toBe(1);
   });
 
+  test.concurrent.each(['.gitleaksignore', '.gitleaks.toml', 'config/gitleaks.toml'])(
+    'a gitleaks ignore or config file (%s) exits 1',
+    async (file) => {
+      const { status, out } = await change(file, 'abc123:src/a.ts:generic-api-key:1\n');
+      expect(out).toContain(`[silenced-checker] ${file}`);
+      expect(status).toBe(1);
+    },
+  );
+
   test.concurrent('ordinary comments are clean', async () => {
     const { status } = await change('src/b.ts', '// ignore the cache here\nexport const b = 2;\n');
     expect(status).toBe(0);
