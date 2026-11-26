@@ -1,5 +1,5 @@
-// Fixture project: reuses the REAL domain thresholds from the root jest.config.js.
-const { domainCoverageThreshold } = require('../../../../jest.config');
+// Fixture project: reuses the REAL domain thresholds from jest.domain-coverage.js.
+const { domainCoverageThreshold } = require('../../../../jest.domain-coverage');
 
 /** @type {import('jest').Config} */
 module.exports = {
