@@ -1,0 +1,64 @@
+# Plantilla de tarea del plan (tasks/plan.md). Sintaxis: GitHub issue forms
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+name: Tarea del plan
+description: Una tarea de tasks/plan.md (una issue = una rama = un PR).
+title: 'T<hito>.<n> · '
+labels: ['tarea']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Copia los campos de la tarea en `tasks/plan.md`. Añade a mano la etiqueta del módulo (`mod:…`) y el *milestone* del hito.
+        Si algo no está en la spec o el plan, no es una tarea: propónlo para V1, V2 o descarte.
+  - type: textarea
+    id: que
+    attributes:
+      label: Qué
+      description: Lo que se construye, en una o dos frases. Enlaza la spec del módulo (`spec/SPEC-<id>.md`) o el ADR si aplica.
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación
+      description: Comprobables. Uno por línea.
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: verificacion
+    attributes:
+      label: Verificación
+      value: |
+        - [ ] Criterios comprobados y anotados en el PR (con fuente y fecha de la doc oficial cuando se verifica una API).
+        - [ ] `npm run check` y CI en verde.
+        - [ ] Cumple `CONSTRAINTS.md` (TDD con agentes separados si es lógica de la app).
+    validations:
+      required: true
+  - type: input
+    id: depende
+    attributes:
+      label: Depende de
+      description: Tareas o issues previas (p. ej. «T0.6 (#7)») o «Nada».
+      placeholder: Nada
+    validations:
+      required: true
+  - type: dropdown
+    id: tamano
+    attributes:
+      label: Tamaño
+      options:
+        - XS
+        - S
+        - M
+        - L
+      default: 1
+    validations:
+      required: true
+  - type: input
+    id: plan
+    attributes:
+      label: Plan
+      description: Sección de `tasks/plan.md`.
+      placeholder: 'tasks/plan.md › T0.10'

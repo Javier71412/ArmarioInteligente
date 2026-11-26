@@ -1,0 +1,7 @@
+# Sin issues en blanco para quien no mantiene el repo: toda issue sale de una plantilla.
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+blank_issues_enabled: false
+contact_links:
+  - name: Plan de implementación
+    url: https://github.com/Javier71412/ArmarioInteligente/blob/main/tasks/plan.md
+    about: Antes de abrir una tarea, mira si ya está en el plan.
