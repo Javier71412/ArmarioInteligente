@@ -21,3 +21,16 @@ expo-env.d.ts
 Thumbs.db
 *.log
 coverage/
+
+# Expo / Metro / nativo (de la plantilla oficial create-expo-app, SDK 58)
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+.metro-health-check*
+*.tsbuildinfo
+npm-debug.*
