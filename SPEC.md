@@ -142,7 +142,8 @@ Los nombres de función e interfaz que aparecen en las specs de módulo describe
 - **Integración de datos:** repositorios contra SQLite en tests (mecanismo en el ADR de datos).
 - **E2E en el móvil o emulador:** el ciclo de la mañana completo. La herramienta se elige en un ADR.
 - **Rendimiento y accesibilidad:** comprobación manual guiada en el móvil real en cada hito, con los umbrales de «Criterios de éxito».
-- TDD: el test que falla va antes del código (skill test-driven-development). El listón exacto de cobertura se fija con `/agent-skills:constraints`.
+- TDD: el test que falla va antes del código (skill test-driven-development), y lo escribe un agente **distinto** del que programa.
+- Umbrales, herramientas y dónde corre cada comprobación: [CONSTRAINTS.md](CONSTRAINTS.md) (aprobado el 2026-11-26).
 
 ## Diseño (fase previa a cualquier pantalla, dentro de `app-base`)
 
@@ -162,7 +163,7 @@ Referencia de estilo: **Material 3 Expressive, SIN VERIFICAR** (su web no se pud
 ## Límites
 
 - **Siempre:**
-  - pasar `npm run check` antes de cada commit;
+  - cumplir [CONSTRAINTS.md](CONSTRAINTS.md) y pasar `npm run check` antes de cada commit;
   - una rama por issue y PR hacia `main`;
   - estilos desde tokens;
   - mostrar la atribución de Open-Meteo junto a los datos de clima;
@@ -188,7 +189,7 @@ Referencia de estilo: **Material 3 Expressive, SIN VERIFICAR** (su web no se pud
 2. El motor genera 3 outfits con 300 prendas en **< 100 ms** (test de rendimiento).
 3. Del outfit visible a confirmado: **≤ 2 toques**. Deshacer está disponible durante el día.
 4. Dar de alta una prenda con foto lleva **≤ 20 s** de media.
-5. Las animaciones clave (regenerar, candado, confirmar → cesto, transiciones) van a **60 fps** sin tirones visibles en el móvil de referencia (Redmi Note 15 Pro 5G).
+5. Las animaciones clave (regenerar, candado, confirmar → cesto, transiciones) van a **120 fps** (pantalla a 120 Hz) sin tirones visibles en el móvil de referencia (Redmi Note 15 Pro 5G); mínimo obligatorio, 60 fps. Medida exacta en `CONSTRAINTS.md` §3.
 6. Ninguna propuesta incluye una prenda en el cesto (test con propiedades sobre el motor).
 7. Sin conexión: la app abre, propone outfits (con el último clima guardado o avisando) y gestiona el cesto.
 8. Exportar y luego importar en una instalación limpia recupera todas las prendas, fotos, usos, cesto y agenda.
