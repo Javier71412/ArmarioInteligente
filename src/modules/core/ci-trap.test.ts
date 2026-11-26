@@ -1,6 +1,4 @@
-// Trampa a propósito para comprobar la CI (#9). Este PR se cierra sin fusionar.
-const api_key = 'Xk29vQpL7mZr4TbN8wYc1HdF6sJe3GuA';
-
-it.only('ci trap', () => {
-  expect(api_key).toHaveLength(32);
+// Trampa de #9 ya corregida: sin .only ni clave. Este PR se cierra sin fusionar.
+it('ci trap fixed', () => {
+  expect(1).toBe(1);
 });
