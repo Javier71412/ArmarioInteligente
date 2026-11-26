@@ -20,7 +20,7 @@ expo-env.d.ts
 .DS_Store
 Thumbs.db
 *.log
-coverage/
+/coverage/
 
 # Expo / Metro / nativo (de la plantilla oficial create-expo-app, SDK 58)
 .kotlin/
