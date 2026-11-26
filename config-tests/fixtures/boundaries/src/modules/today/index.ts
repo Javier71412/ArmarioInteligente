@@ -1,0 +1,1 @@
+export const todayModule = 'today';
